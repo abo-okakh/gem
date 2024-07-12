@@ -15,7 +15,6 @@ type Idea_struct struct {
 }
 
 func Write_JSON(file string, newIdea Idea_struct) {
-	// Read the existing file data
 	file_data, err := os.ReadFile(file)
 	if err != nil && !os.IsNotExist(err) {
 		fmt.Println("File reading error in Write_JSON:", err)
@@ -23,7 +22,6 @@ func Write_JSON(file string, newIdea Idea_struct) {
 	}
 
 	var ideas []Idea_struct
-	// Unmarshal the file data if not empty
 	if len(file_data) > 0 {
 		err = json.Unmarshal(file_data, &ideas)
 		if err != nil {
@@ -31,20 +29,12 @@ func Write_JSON(file string, newIdea Idea_struct) {
 			return
 		}
 	}
-	// 	json.Unmarshal takes JSON-encoded data (file_data) and stores the result in the value pointed to by &ideas.
-	// &ideas is a pointer to the slice ideas, allowing Unmarshal to modify the slice directly.
-
-	// Append the new idea
 	ideas = append(ideas, newIdea)
-
-	// Marshal the updated slice back to JSON
 	updatedJSON, err := json.MarshalIndent(ideas, "", "  ")
 	if err != nil {
 		fmt.Println("Error marshalling JSON:", err)
 		return
 	}
-
-	// Write the updated JSON back to the file
 	err = os.WriteFile(file, updatedJSON, 0644)
 	if err != nil {
 		fmt.Println("Error writing file:", err)
@@ -53,7 +43,6 @@ func Write_JSON(file string, newIdea Idea_struct) {
 }
 
 func Choose_from_JSON(arg int, file string) {
-	// just display data
 	file_data, err := os.ReadFile(file)
 	if err != nil && !os.IsNotExist(err) {
 		fmt.Println("File reading error in Read_JSON:", err)
@@ -78,7 +67,6 @@ func Choose_from_JSON(arg int, file string) {
 	}
 }
 func Display_JSON(file string, amount interface{}) {
-	// just display data
 	file_data, err := os.ReadFile(file)
 	if err != nil && !os.IsNotExist(err) {
 		fmt.Println("File reading error in Read_JSON:", err)
@@ -143,16 +131,13 @@ func Remove_from_JSON(file string, args string) {
 			}
 		}
 		fmt.Println("Removed : ", ideas[rm_index])
-		// Removing logic goes here
 		ideas = append(ideas[:rm_index], ideas[rm_index+1:]...)
-		// updating json
 		updatedJSON, err := json.MarshalIndent(ideas, "", "  ")
 		if err != nil {
 			fmt.Println("Error marshalling JSON:", err)
 			return
 		}
 
-		// Write the updated JSON back to the file
 		err = os.WriteFile(file, updatedJSON, 0644)
 		if err != nil {
 			fmt.Println("Error writing file:", err)

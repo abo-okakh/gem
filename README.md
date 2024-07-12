@@ -51,6 +51,6 @@ gem -rm 5
 ```
 
 ## About
-`gem` is a simple and fast way to manage your ideas directly from the terminal. This is my first Go project, and I'm excited to share it with you! :D
+`gem` is a simple and fast way to manage your ideas directly from the terminal. This is my first Go project, and I'm excited to share it with you! :)
 
 
