@@ -6,7 +6,7 @@ Out of paper? No problem! Jot down your ideas right here in the terminal.
 
 -ls / list the ideas from gem storage
     eg. go run gem.go -ls
-    -ls <number of item>
+    -ls <"number of item">
     -ls -all / for all the items
 
 -rm / remove an idea from gem storage
