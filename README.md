@@ -2,7 +2,7 @@
 Out of paper? No problem! Jot down your ideas right here in the terminal.
 
 -add / to add ideas to gem storage
-    eg. go run gem.go -add <your idea>
+    eg. go run gem.go -add <"your idea">
 
 -ls / list the ideas from gem storage
     eg. go run gem.go -ls
